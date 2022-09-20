@@ -7,19 +7,19 @@ from bs4 import BeautifulSoup
 import os
 import re
 format_pattern=re.compile(r'(\.[a-z]+)$')
-path=os.path.split(os.path.realpath(__file__))[0]
+path=os.path.dirname(os.path.realpath(__file__))
 #负责判断图片位置
 class id():
     _list=[]
     def __init__(self,tag):
         self.tag=tag
     def getlist(self):
-        isExists=os.path.exists(os.path.join(path,self.tag+'.txt'))
+        isExists=os.path.exists(os.path.join(path,'id',self.tag+'.txt'))
         if isExists:
-            with open(os.path.join(path,self.tag+'.txt'),'r') as f:
+            with open(os.path.join(path,'id',self.tag+'.txt'),'r') as f:
                 ls=f.read().split(',')
         else:
-            with open(os.path.join(path,self.tag+'.txt'),'w') as f:
+            with open(os.path.join(path,'id',self.tag+'.txt'),'w') as f:
                 print(self.tag+'.txt文件初始化')
                 ls=[]
         self._ls=ls
