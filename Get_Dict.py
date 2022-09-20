@@ -1,10 +1,10 @@
 import os
 import shutil
-root_dir=os.path.dirname(__file__)
+root_dir=os.path.dirname(os.path.realpath(__file__))
 dict={}
 
 def Create_Dict():
-    with open(os.path.join(root_dir,'对照表.csv'),'r',encoding='utf-8-sig') as f:
+    with open(os.path.join(root_dir,'id','对照表.csv'),'r',encoding='utf-8-sig') as f:
         dicts=f.read().split('\n')
         for elem in dicts:
             #print(elem.split(','))
