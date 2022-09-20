@@ -8,11 +8,11 @@ import os.path as op
 
 
 root_dir=os.path.dirname(os.path.realpath(__file__))
-filenames=['selected','r18g','discard']
+
 class ClassifyPic():
     def __init__(self,path='pic',kind=3):
-        self.hight=1600/3
-        self.width=2560/3
+        self.hight=1600/2
+        self.width=2560/2
         self.image_list=os.listdir(op.join(root_dir,path))
         self.path=path
         self.savedir='classified'
@@ -87,9 +87,9 @@ class ClassifyPic():
                     continue
 
 
-
+filenames=['1','2','3']
 if __name__=='__main__':
-    classify=ClassifyPic()
+    classify=ClassifyPic(path='genshin_impact')
     classify.makeResultDirs()
     classify.showimage()
     #print(classify.image_list)

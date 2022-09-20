@@ -52,7 +52,7 @@ def gettags(filename):#由文件名得到角色标签
 def classify(str):
     #global dict
     exc=['manjuu_(azur_lane)']
-    for file in os.listdir(os.path.join(root_dir,str)):
+    for file in os.listdir(os.path.join(root_dir,'classified',str)):
         tags=gettags(file)
         #print(tags)
         if(len(tags)<=3 and len(tags)>0):

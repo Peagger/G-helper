@@ -45,12 +45,12 @@ class id():
             return inf
     #写入
     def write(self,str):
-        isExists=os.path.exists(os.path.join(path,self.tag+'.txt'))
+        isExists=os.path.exists(os.path.join(path,'id',self.tag+'.txt'))
         if isExists:
-            with open(os.path.join(path,self.tag+'.txt'),'a+') as f:
+            with open(os.path.join(path,'id',self.tag+'.txt'),'a+') as f:
                 f.write(str+',')
         else:
-            with open(os.path.join(path,self.tag+'.txt'),'w') as f:
+            with open(os.path.join(path,'id',self.tag+'.txt'),'w') as f:
                 print(self.tag+'.txt文件初始化')
 
 def getURL(url,cookie='',pram={},time1=10,time2=30,referer='https://gelbooru.com/',host='gelbooru.com'):
