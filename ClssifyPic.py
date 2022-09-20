@@ -8,11 +8,12 @@ import os.path as op
 
 
 root_dir=os.path.dirname(os.path.realpath(__file__))
-
+os.chdir(root_dir)
 class ClassifyPic():
     def __init__(self,path='pic',kind=3):
-        self.hight=1600/2
-        self.width=2560/2
+        self.resize=0.6
+        self.hight=1600*self.resize
+        self.width=2560*self.resize
         self.image_list=os.listdir(op.join(root_dir,path))
         self.path=path
         self.savedir='classified'
@@ -45,19 +46,21 @@ class ClassifyPic():
                 else:
                     print('好耶,分类完毕!')
             #读取图片
-            image_path=op.join(root_dir,self.path,self.image_list[i])
+            image_path=op.join('./',self.path,self.image_list[i])
             image=cv2.imread(image_path)
             cv2.destroyAllWindows()
             #缩放图片比例
             hight,width = image.shape[:2]
             ratioOfHight=self.hight/hight
             ratioOfwidth=self.width/width
+            ratio=0
             if ratioOfHight<1:      ratio=ratioOfHight
             if ratioOfwidth<ratio:  ratio=ratioOfHight
             if ratio:
                 image=cv2.resize(image,(int(width*ratio),int(hight*ratio)),interpolation=cv2.INTER_AREA)
             #窗口设置
-            cv2.imshow(self.image_list[i], image)
+            cv2.imshow('classify', image)
+            #cv2.moveWindow(self.image_list[i],100,200)
             pressedKey=cv2.waitKeyEx()
             print('当前输入: ',pressedKey,pressedKey&0xff)
 

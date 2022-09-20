@@ -58,26 +58,26 @@ def classify(str):
         if(len(tags)<=3 and len(tags)>0):
             for tag in tags:
                 if(tag not in exc):
-                    if(dict.get(tag.replace(' ','_'))):
+                    if(dict.get(tag.replace(' ','_'))):#字典里面有
                         make_dirs(os.path.join(str,dict[tag.replace(' ','_')]))
                         if not os.path.exists(os.path.join(root_dir,'pic',str,dict[tag.replace(' ','_')],file)):
-                            shutil.move(os.path.join(root_dir,str,file),os.path.join(root_dir,'pic',str,dict[tag.replace(' ','_')]))
+                            shutil.move(os.path.join(root_dir,'classified',str,file),os.path.join(root_dir,'pic',str,dict[tag.replace(' ','_')]))
                         else:
-                            os.remove(os.path.join(root_dir,str,file))
+                            os.remove(os.path.join(root_dir,'classified',str,file))
 
                     else:
                         make_dirs(os.path.join(str,tag.replace(' ','_')))
                         if not os.path.exists(os.path.join(root_dir,'pic',str,tag.replace(' ','_'),file)):
-                            shutil.move(os.path.join(root_dir,str,file),os.path.join(root_dir,'pic',str,tag.replace(' ','_')))
+                            shutil.move(os.path.join(root_dir,'classified',str,file),os.path.join(root_dir,'pic',str,tag.replace(' ','_')))
                         else:
-                            os.remove(os.path.join(root_dir,str,file))
+                            os.remove(os.path.join(root_dir,'classified',str,file))
                     break
         else:
             make_dirs(os.path.join(str,'multi'))
             if not os.path.exists(os.path.join(root_dir,'pic',str,'multi',file)):
-                shutil.move(os.path.join(root_dir,str,file),os.path.join(root_dir,'pic',str,'multi'))
+                shutil.move(os.path.join(root_dir,'classified',str,file),os.path.join(root_dir,'pic',str,'multi'))
             else:
-                os.remove(os.path.join(root_dir,str,file))
+                os.remove(os.path.join(root_dir,'classified',str,file))
 
 
 #filename='7496131.xxx's
