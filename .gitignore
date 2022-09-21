@@ -4,3 +4,4 @@
 *.png
 *.txt
 __pycache__/
+*.pyc
