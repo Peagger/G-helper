@@ -47,7 +47,11 @@ class ClassifyPic():
                     print('好耶,分类完毕!')
             #读取图片
             image_path=op.join('./',self.path,self.image_list[i])
-            image=cv2.imread(image_path)
+            try:
+                image=cv2.imread(image_path)
+            except:
+                i=i+1
+                continue
             cv2.destroyAllWindows()
             #缩放图片比例
             hight,width = image.shape[:2]
