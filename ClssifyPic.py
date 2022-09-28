@@ -38,13 +38,14 @@ class ClassifyPic():
         length=len(self.image_list)#图片数量
         if(length==0):print('请在{}文件夹下放入图片'.format(self.path));return
         while True:
-            print('第{}张'.format(i+1))
+            
             i=i%len(self.image_list)
             if (i in self.movedpic):
                 if (len(self.movedpic)!=length):
                     i=i+1;continue
                 else:
                     print('好耶,分类完毕!')
+                    break
             #读取图片
             image_path=op.join('./',self.path,self.image_list[i])
             try:
@@ -52,6 +53,7 @@ class ClassifyPic():
             except:
                 i=i+1
                 continue
+            print('第{}张'.format(i+1))
             cv2.destroyAllWindows()
             #缩放图片比例
             hight,width = image.shape[:2]
