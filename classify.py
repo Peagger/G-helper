@@ -57,7 +57,7 @@ def classify(str):
         #print(tags)
         if(len(tags)<=3 and len(tags)>0):
             for tag in tags:
-                if(tag not in exc):
+                if(tag not in exc):#黑名单tag
                     if(dict.get(tag.replace(' ','_'))):#字典里面有
                         make_dirs(os.path.join(str,dict[tag.replace(' ','_')]))
                         if not os.path.exists(os.path.join(root_dir,'pic',str,dict[tag.replace(' ','_')],file)):

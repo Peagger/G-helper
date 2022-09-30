@@ -147,7 +147,7 @@ def GetId(tag,num=500,max=0,min=100000000,mod='1'):#上限500张
 def setmode(i):
     global mod
     mod=str(i)
-tag='genshin_impact'#'genshin_impact'honkai_impact_3rd''azur_lane'
+tag='honkai_impact_3rd'#'genshin_impact'honkai_impact_3rd''azur_lane'
 #mod='1'#'新图模式'
 #mod='2'#'初始化'
 #mod='3'#'老图模式'
