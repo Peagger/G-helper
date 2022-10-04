@@ -58,17 +58,17 @@ def classify(str):
         if(len(tags)<=3 and len(tags)>0):
             for tag in tags:
                 if(tag not in exc):#黑名单tag
-                    if(dict.get(tag.replace(' ','_'))):#字典里面有
-                        make_dirs(os.path.join(str,dict[tag.replace(' ','_')]))
-                        if not os.path.exists(os.path.join(root_dir,'pic',str,dict[tag.replace(' ','_')],file)):
-                            shutil.move(os.path.join(root_dir,'classified',str,file),os.path.join(root_dir,'pic',str,dict[tag.replace(' ','_')]))
+                    if(dict.get(tag)):#字典里面有
+                        make_dirs(os.path.join(str,dict[tag]))
+                        if not os.path.exists(os.path.join(root_dir,'pic',str,dict[tag],file)):
+                            shutil.move(os.path.join(root_dir,'classified',str,file),os.path.join(root_dir,'pic',str,dict[tag]))
                         else:
                             os.remove(os.path.join(root_dir,'classified',str,file))
 
                     else:
-                        make_dirs(os.path.join(str,tag.replace(' ','_')))
-                        if not os.path.exists(os.path.join(root_dir,'pic',str,tag.replace(' ','_'),file)):
-                            shutil.move(os.path.join(root_dir,'classified',str,file),os.path.join(root_dir,'pic',str,tag.replace(' ','_')))
+                        make_dirs(os.path.join(str,tag))
+                        if not os.path.exists(os.path.join(root_dir,'pic',str,tag,file)):
+                            shutil.move(os.path.join(root_dir,'classified',str,file),os.path.join(root_dir,'pic',str,tag))
                         else:
                             os.remove(os.path.join(root_dir,'classified',str,file))
                     break

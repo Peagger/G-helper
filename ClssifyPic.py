@@ -10,7 +10,7 @@ import os.path as op
 root_dir=os.path.dirname(os.path.realpath(__file__))
 os.chdir(root_dir)
 class ClassifyPic():
-    def __init__(self,path='pic',kind=3):
+    def __init__(self,path='pic'):
         self.resize=0.6
         self.hight=1600*self.resize
         self.width=2560*self.resize
